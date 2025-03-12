@@ -1,1 +1,13 @@
-<p>home works!</p>
+<div>
+  <form [formGroup]="EducationForm" (ngSubmit)="onsubmit()">
+    <div>
+      <label>Education email</label>
+      <input type="email" formControlName="email" />
+    </div>
+    <div>
+      <label>University</label>
+      <input type="text" formControlName="university" />
+    </div>
+    <button type="submit">submit</button>
+  </form>
+</div>
