@@ -1,0 +1,26 @@
+<h3>USer dashboard</h3>
+<nav>
+  <ul>
+    User
+    <li>
+      <ul>
+        <li [routerLink]="'profile'">Profile</li>
+        <li [routerLink]="'setting'">Settings</li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+<router-outlet></router-outlet>
+
+<div>
+  <ul>
+    @for(user of users; track user){
+    <li>
+      <a [routerLink]="['/user', user.id]" (click)="selectuser(user.id)">{{
+        user.username
+      }}</a>
+    </li>
+    }
+  </ul>
+</div>
+<app-userdetails [userid]="selectedUserID"> </app-userdetails>

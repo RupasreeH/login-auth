@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, HostListener, inject } from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -7,11 +7,12 @@ import {
   Validators,
 } from '@angular/forms';
 import { CanComponentDeactivate } from '../can-component-deactivate';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-home',
-  imports: [FormsModule, ReactiveFormsModule],
+  standalone: true,
+  imports: [FormsModule, ReactiveFormsModule, RouterLink],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
@@ -44,5 +45,10 @@ export class HomeComponent implements CanComponentDeactivate {
     );
     this.routes.navigate(['/logout']);
     //}
+  }
+  @HostListener('window:beforeunload', ['$event'])
+  handleBrowserRefresh(event: Event) {
+    event.preventDefault();
+    return (event.returnValue = false);
   }
 }
