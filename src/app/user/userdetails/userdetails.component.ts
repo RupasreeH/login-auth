@@ -6,6 +6,7 @@ import {
   OnChanges,
   SimpleChanges,
 } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-userdetails',
@@ -16,9 +17,16 @@ import {
 })
 export class UserdetailsComponent implements OnChanges {
   http = inject(HttpClient);
+  route = inject(ActivatedRoute);
   userdata: any;
+  userdata1: any;
   @Input() userid = '';
-  constructor() {}
+  constructor() {
+    this.route.data.subscribe((data) => {
+      this.userdata = data['userData'];
+      console.log('Loaded from resolver', this.userdata);
+    });
+  }
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes['userid'] && this.userid) {
@@ -26,9 +34,11 @@ export class UserdetailsComponent implements OnChanges {
     }
   }
   fetchUserDetails() {
-    console.log('input value', this.userid);
-    this.http.get<any[]>('/assets/data/user-data.json').subscribe((data) => {
-      this.userdata = data.find((u) => u.id === this.userid);
-    });
+    console.log('found user..........', this.userid);
+    console.log('data in fetch', this.userdata);
+    if (this.userdata) {
+      this.userdata1 = this.userdata.find((u: any) => u.userId == this.userid);
+    }
+    console.log('data in fetch111', this.userdata1);
   }
 }

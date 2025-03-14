@@ -4,7 +4,9 @@
     User
     <li>
       <ul>
-        <li [routerLink]="'profile'">Profile</li>
+        <li [routerLink]="'profile'" [queryParams]="{ category: 'admin' }">
+          Profile
+        </li>
         <li [routerLink]="'setting'">Settings</li>
       </ul>
     </li>

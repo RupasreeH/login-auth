@@ -61,4 +61,11 @@ export const routes: Routes = [
     path: 'user',
     loadChildren: () => import('./user/user.routes').then((m) => m.routes),
   },
+  {
+    path: 'profile',
+    loadComponent: () =>
+      import('./user/profile/profile.component').then(
+        (m) => m.ProfileComponent
+      ),
+  },
 ];
