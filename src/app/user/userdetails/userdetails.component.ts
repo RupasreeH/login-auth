@@ -73,6 +73,7 @@ export class UserdetailsComponent implements OnChanges {
   }
 
   removeSkill(index: number) {
+    //removeSkill
     if (this.skills.length > 1) {
       this.skills.removeAt(index);
     }
