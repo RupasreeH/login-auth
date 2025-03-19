@@ -59,6 +59,7 @@ export class UserdetailsComponent implements OnChanges {
     }
   }
   fetchUserDetails() {
+    //fetchUserDetails
     if (this.userdata) {
       this.userdata1 = this.userdata.find((u: any) => u.userId == this.userid);
     }
