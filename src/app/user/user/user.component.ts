@@ -31,6 +31,7 @@ export class UserComponent {
     });
   }
   selectuser(userid: string) {
+    this.selectedUserID = '';
     this.routePara.paramMap.subscribe((params) => {
       this.selectedUserID = params.get('id');
     });

@@ -1,7 +1,26 @@
 <!-- <ng-content></ng-content> -->
 
 <h3>{{ userid }}</h3>
-@if(userdata1){
+<h4>Hello{{ username }}</h4>
+<!-- @if(userdata1){
 <h3>Hello user details : {{ userdata1.username }}</h3>
 <h2>{{ userdata1.description }}</h2>
-}
+} -->
+<form [formGroup]="skillsForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="name">Name</label>
+    <input type="text" formControlName="userName" />
+  </div>
+  <div formArrayName="skills">
+    <h3>Skills</h3>
+    <button type="button" (click)="addSkill()">AddSkill</button>
+    @for(skill of skills.controls; track $index){
+    <div>
+      <label for="skill">Skill</label>
+      <input type="skill" [formControlName]="$index" />
+      <button type=" button" (click)="removeSkill($index)">removeSkill</button>
+    </div>
+    }
+  </div>
+  <button type="submit">Submit</button>
+</form>
