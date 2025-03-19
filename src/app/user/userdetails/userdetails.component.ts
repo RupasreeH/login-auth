@@ -64,10 +64,11 @@ export class UserdetailsComponent implements OnChanges {
     }
   }
   get skills() {
-    //adding skills
+    //get skills
     return this.skillsForm.get('skills') as FormArray;
   }
   addSkill() {
+    //add skills
     this.skills.push(new FormControl('', Validators.required));
   }
 
