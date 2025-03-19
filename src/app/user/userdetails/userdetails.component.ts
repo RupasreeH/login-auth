@@ -79,6 +79,7 @@ export class UserdetailsComponent implements OnChanges {
     }
   }
   onSubmit() {
+    //onSubmit
     console.log('skill form value', this.skillsForm.value);
   }
 }
