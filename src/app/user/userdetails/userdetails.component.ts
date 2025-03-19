@@ -64,6 +64,7 @@ export class UserdetailsComponent implements OnChanges {
     }
   }
   get skills() {
+    //adding skills
     return this.skillsForm.get('skills') as FormArray;
   }
   addSkill() {
