@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
     //     console.log('error', error);
     //   }
     // );
-    //end
+    //ends here
   }
 
   onSubmit() {
